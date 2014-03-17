@@ -1,4 +1,4 @@
 my_scripts
 ==========
 
-Multiple AappleScripts for MacOS
+Multiple AppleScripts for MacOS
