@@ -1,0 +1,19 @@
+--AppleScript
+tell application "Finder"
+	
+	delay 10
+	
+	-- PREP SSID DETECTION
+	
+	set SSID to do shell script "/System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport -I | awk '/ SSID: / {print $2}'"
+	
+	-- IF NETWORK IS HOME
+	if SSID is "<your_network_ssid" then
+		mount volume "<protocol>://<network_hd_path>/<volume_pah>" as user name "<user_name>"
+		do shell script ("hdiutil attach -mountpoint /Volumes/<disk_image_name> /Volumes/<volume_path>/<image_path>")
+	else
+		-- DO NOTHING
+		set endresult to "fail"
+	end if
+
+end tell
